@@ -1,0 +1,44 @@
+﻿<div class="row">
+    <div class="col-md-6">
+        <h2>Image Reading</h2>
+        <p>Tests image reading capabilities:</p>
+        <p>
+        @using (Html.BeginForm("ReadImage", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="file" name="image" class="form-control" />
+            <input type="submit" class="btn btn-default" value="Send" />
+            if(ViewBag.ReadImage != null)
+            {
+                <p>
+                    <strong>Labels identified: </strong>@ViewBag.ReadImage.ToString()
+                </p>
+            }
+
+            if (ViewBag.GetImageInstagramHashtags != null)
+            {
+                <p>
+                    <strong>Suggested hashtags: </strong>@ViewBag.GetImageInstagramHashtags.ToString()
+                </p>
+            }
+            
+        }
+    </p>
+    </div>
+    <div class="col-md-6">
+        <h2>Instagram Hashtags</h2>
+        <p>Suggests instagram top hashtags based on the informed keywords</p>
+        <p>
+            @using (Html.BeginForm("GetInstagramHashtags", "Home", FormMethod.Post))
+            {
+                <input type="text" name="keywords" class="form-control" />
+                <input type="submit" class="btn btn-default" value="Send" />
+                if (ViewBag.GetInstagramHashtags != null)
+                {
+                <p>
+                    <strong>Suggested hashtags: </strong>@ViewBag.GetInstagramHashtags.ToString()
+                </p>
+                }
+            }
+        </p>
+    </div>
+</div>
